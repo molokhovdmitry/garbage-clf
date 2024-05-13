@@ -37,6 +37,7 @@ for class_name in files:
     total_files = len(class_files)
     train_split = int(0.8 * total_files)
     test_split = int(0.1 * total_files)
+    print(train_split, test_split)
 
     # Split the files
     train_files = class_files[:train_split]
@@ -45,8 +46,6 @@ for class_name in files:
 
     # Copy files to target directories
     for file_path in train_files:
-        print(os.path.join(target_dirs['train'], class_name))
-        print(file_path)
         shutil.copy(file_path, os.path.join(target_dirs['train'], class_name))
 
     for file_path in test_files:
