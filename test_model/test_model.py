@@ -32,12 +32,12 @@ def test_f1():
             full_labels.extend(labels.tolist())
 
     val_f1 = f1_score(
-            full_labels,
-            full_preds,
-            average='weighted',
-            zero_division=0,
-        )
+        full_labels,
+        full_preds,
+        average='weighted',
+        zero_division=0,
+    )
     print(full_labels, full_preds)
     print(f"Test F1: {val_f1:4f}")
-    print(classification_report(full_labels, full_preds))
+    print(classification_report(full_labels, full_preds, zero_division=0))
     assert val_f1 > 0.01
