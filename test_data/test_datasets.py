@@ -1,10 +1,6 @@
 import os
 
-data_path = '../data/processed/kaggle'
-
-
-def test_test():
-    assert 1 == 0
+data_path = '/data/processed/kaggle'
 
 
 def test_classes():
