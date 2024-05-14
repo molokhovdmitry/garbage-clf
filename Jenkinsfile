@@ -24,7 +24,7 @@ pipeline {
                     sh 'docker run \
                         -v $PROJECT_DIR/data:/data \
                         -v $PROJECT_DIR/models:/models \
-                        test_model pytest',
+                        test_model pytest'
                 }
             }
         }
