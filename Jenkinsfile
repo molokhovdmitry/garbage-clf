@@ -6,7 +6,7 @@ pipeline {
                 sh 'cd test_data && docker build -t test_data .'
                 sh 'cd model && docker build -t model .'
                 sh 'cd test_model && docker build -t test_model .'
-                sh 'cd app && docker build -t .'
+                sh 'cd app && docker build -t app .'
             }
         }
         stage('Run Data Tests') {
