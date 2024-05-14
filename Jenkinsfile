@@ -5,15 +5,15 @@ pipeline {
             steps {
                 sh 'cd test_data && docker build -t test_data .'
                 sh 'docker run \
-                    -v /home/nomad/projects/garbage-clf/data:/data test_data pytest'
+                    -v $PROJECT_DIR/data:/data test_data pytest'
             }
         }
         stage('Train The Model') {
             steps {
                 sh 'cd model && docker build -t model .'
                 sh 'docker run \
-                    -v /home/nomad/projects/garbage-clf/data:/data \
-                    -v /home/nomad/projects/garbage-clf/models:/models \
+                    -v $PROJECT_DIR/data:/data \
+                    -v $PROJECT_DIR/models:/models \
                     --gpus all model'
             }
         }
@@ -22,8 +22,8 @@ pipeline {
                 script {
                     sh 'cd test_model && docker build -t test_model .'
                     sh 'docker run \
-                        -v /home/nomad/projects/garbage-clf/data:/data \
-                        -v /home/nomad/projects/garbage-clf/models:/models \
+                        -v $PROJECT_DIR/data:/data \
+                        -v $PROJECT_DIR/models:/models \
                         test_model pytest',
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh 'cd app && docker build -t app .'
                 sh 'docker run -d \
-                    -v /home/nomad/projects/garbage-clf/models:/app/models/ \
+                    -v $PROJECT_DIR/models:/app/models/ \
                     -p 8501:8501 app'
             }
         }
