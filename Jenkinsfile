@@ -31,7 +31,7 @@ pipeline {
         stage('Start Streamlit App') {
             steps {
                 sh 'cd app && docker build -t app .'
-                sh 'docker run -d \
+                sh 'docker run \
                     -v $PROJECT_DIR/models:/app/models/ \
                     -p 8501:8501 app'
             }
