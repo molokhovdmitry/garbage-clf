@@ -5,7 +5,8 @@ pipeline {
             steps {
                 sh 'cd test_data && docker build -t test_data .'
                 sh 'docker run --rm \
-                    -v $PROJECT_DIR/data:/data test_data'
+                    -v $PROJECT_DIR/data:/data \
+                    test_data'
             }
         }
         stage('Train The Model') {
@@ -24,7 +25,7 @@ pipeline {
                     sh 'docker run --rm \
                         -v $PROJECT_DIR/data:/data \
                         -v $PROJECT_DIR/models:/models \
-                        test_model pytest'
+                        test_model'
                 }
             }
         }
@@ -33,7 +34,8 @@ pipeline {
                 sh 'cd app && docker build -t app .'
                 sh 'docker run -d --rm \
                     -v $PROJECT_DIR/models:/app/models/ \
-                    -p 8501:8501 app'
+                    -p 8501:8501 \
+                    app'
             }
         }
     }
