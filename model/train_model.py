@@ -63,7 +63,12 @@ if __name__ == "__main__":
 
         train_loss /= len(train_data)
         val_loss /= len(val_data)
-        val_f1 = f1_score(full_labels, full_preds, average='weighted')
+        val_f1 = f1_score(
+            full_labels,
+            full_preds,
+            average='weighted',
+            zero_division=0,
+        )
         print(f"Epoch [{epoch + 1}/{EPOCHS}] Train Loss: {train_loss:.4f}",
               f"Val Loss: {val_loss:.4f} Val F1: {val_f1:.4f}")
 

@@ -15,7 +15,7 @@ def test_f1():
     _, test_loader = init_loader('test', BATCH_SIZE, IMG_SIZE)
 
     # Load the model
-    model = torch.load('/models/model.pt', map_location=device)
+    model = torch.load('../models/model.pt', map_location=device)
 
     model.eval()
 
@@ -32,6 +32,7 @@ def test_f1():
             full_labels.extend(labels.tolist())
 
     val_f1 = f1_score(full_labels, full_preds, average='weighted')
+    print(full_labels, full_preds)
     print(f"Test F1: {val_f1:4f}")
     print(classification_report(full_labels, full_preds))
     assert val_f1 > 0.01

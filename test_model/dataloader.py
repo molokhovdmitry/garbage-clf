@@ -21,7 +21,8 @@ def init_loader(split, batch_size, img_size):
 
     data_loader = torch.utils.data.DataLoader(
         dataset,
-        batch_size=batch_size
+        batch_size=batch_size,
+        shuffle=True
     )
 
     return dataset, data_loader
