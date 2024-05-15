@@ -8,10 +8,10 @@ from sklearn.metrics import f1_score
 
 from dataloader import init_loader
 
-EPOCHS = os.getenv('EPOCHS')
-NUM_CLASSES = os.getenv('NUM_CLASSES')
-BATCH_SIZE = os.getenv('BATCH_SIZE')
-IMG_SIZE = os.getenv('IMG_SIZE')
+EPOCHS = int(os.getenv('EPOCHS'))
+NUM_CLASSES = int(os.getenv('NUM_CLASSES'))
+BATCH_SIZE = int(os.getenv('BATCH_SIZE'))
+IMG_SIZE = int(os.getenv('IMG_SIZE'))
 
 
 def init_model():

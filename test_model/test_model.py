@@ -4,8 +4,8 @@ from sklearn.metrics import f1_score, classification_report
 
 from dataloader import init_loader
 
-BATCH_SIZE = os.getenv('BATCH_SIZE')
-IMG_SIZE = os.getenv('IMG_SIZE')
+BATCH_SIZE = int(os.getenv('BATCH_SIZE'))
+IMG_SIZE = int(os.getenv('IMG_SIZE'))
 
 
 def test_f1():
