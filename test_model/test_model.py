@@ -10,7 +10,9 @@ METRIC_THRESHOLD = float(os.getenv('METRIC_THRESHOLD'))
 
 
 def test_f1():
-
+    """
+    Loads the model and tests its F1 Weighted score against the test split.
+    """
     device = torch.device('cpu')
     print(f"Device: {device}")
 
@@ -34,6 +36,7 @@ def test_f1():
             full_preds.extend(preds.tolist())
             full_labels.extend(labels.tolist())
 
+    # Calculate F1
     val_f1 = f1_score(
         full_labels,
         full_preds,

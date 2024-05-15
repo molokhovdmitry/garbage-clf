@@ -24,12 +24,15 @@ def test_splits():
     """
     Assert that the train-val-test splits are correct.
     """
+    # Calculate images for all splits for all class names.
     counts = {}
     for split_path in os.listdir(data_path):
         counts[split_path] = {}
         for class_name in os.listdir(os.path.join(data_path, split_path)):
             counts[split_path][class_name] = os.listdir(
                 os.path.join(data_path, split_path, class_name))
+
+    # Assert 0.8-0.1-0.1 splits
     for split in ['val', 'test']:
         for class_name in counts[split]:
             train_files = len(list(os.listdir(os.path.join(

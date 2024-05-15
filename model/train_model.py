@@ -24,11 +24,14 @@ def init_model():
 if __name__ == "__main__":
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Device: {device}")
+
+    # Load the data
     train_data, train_loader = init_loader('train', BATCH_SIZE, IMG_SIZE)
     print("Train samples:", len(train_data))
     val_data, val_loader = init_loader('val', BATCH_SIZE, IMG_SIZE)
     print("Validation samples:", len(val_data))
 
+    # Train the model
     model = init_model().to(device)
 
     criterion = nn.CrossEntropyLoss()

@@ -1,5 +1,4 @@
 import os
-import time
 import torch
 import torch.nn as nn
 import streamlit as st
@@ -24,11 +23,6 @@ def init_model():
     model = resnet50()
     num_features = model.fc.in_features
     model.fc = nn.Linear(num_features, len(classes))
-
-    # Wait for the model to train
-    while not os.path.exists(model_path):
-        time.sleep(2)
-    time.sleep(2)
 
     # Load the model
     model = torch.load(model_path, map_location=torch.device('cpu'))

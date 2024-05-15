@@ -4,6 +4,7 @@ from torchvision import datasets, transforms
 
 
 def init_loader(split, batch_size, img_size):
+    """Initializes `train`, `val` or `test` Dataset and DataLoader."""
     data_transform = transforms.Compose([
         transforms.Resize((img_size, img_size)),
         transforms.CenterCrop(224),
