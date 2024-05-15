@@ -6,7 +6,7 @@ from dataloader import init_loader
 
 BATCH_SIZE = int(os.getenv('BATCH_SIZE'))
 IMG_SIZE = int(os.getenv('IMG_SIZE'))
-METRIC_THRESHOLD = int(os.getenv('METRIC_THRESHOLD'))
+METRIC_THRESHOLD = float(os.getenv('METRIC_THRESHOLD'))
 
 
 def test_f1():
