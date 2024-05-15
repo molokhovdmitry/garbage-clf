@@ -6,6 +6,7 @@ from dataloader import init_loader
 
 BATCH_SIZE = int(os.getenv('BATCH_SIZE'))
 IMG_SIZE = int(os.getenv('IMG_SIZE'))
+METRIC_THRESHOLD = int(os.getenv('METRIC_THRESHOLD'))
 
 
 def test_f1():
@@ -42,4 +43,4 @@ def test_f1():
     print(full_labels, full_preds)
     print(f"Test F1: {val_f1:4f}")
     print(classification_report(full_labels, full_preds, zero_division=0))
-    assert val_f1 > 0.01
+    assert val_f1 > METRIC_THRESHOLD
