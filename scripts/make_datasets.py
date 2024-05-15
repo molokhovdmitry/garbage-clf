@@ -4,11 +4,11 @@ import random
 
 
 # Define source and target directories
-source_dir = '../data/raw/Garbage classification'
+source_dir = 'data/raw/Garbage classification'
 target_dirs = {
-    'train': '../data/processed/kaggle/train',
-    'test': '../data/processed/kaggle/test',
-    'val': '../data/processed/kaggle/val'
+    'train': 'data/processed/kaggle/train',
+    'test': 'data/processed/kaggle/test',
+    'val': 'data/processed/kaggle/val'
 }
 
 # Get list of all files in the source directory
@@ -37,7 +37,6 @@ for class_name in files:
     total_files = len(class_files)
     train_split = int(0.8 * total_files)
     test_split = int(0.1 * total_files)
-    print(train_split, test_split)
 
     # Split the files
     train_files = class_files[:train_split]
