@@ -7,7 +7,7 @@ from torchvision.models import resnet50
 from torchvision import transforms
 from PIL import Image
 
-IMG_SIZE = 232
+IMG_SIZE = os.getenv('IMG_SIZE')
 model_path = '/app/models/model.pt'
 
 classes = {

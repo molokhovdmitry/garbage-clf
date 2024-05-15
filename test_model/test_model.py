@@ -1,12 +1,14 @@
+import os
 import torch
 from sklearn.metrics import f1_score, classification_report
 
 from dataloader import init_loader
 
+BATCH_SIZE = os.getenv('BATCH_SIZE')
+IMG_SIZE = os.getenv('IMG_SIZE')
+
 
 def test_f1():
-    BATCH_SIZE = 32
-    IMG_SIZE = 232
 
     device = torch.device('cpu')
     print(f"Device: {device}")

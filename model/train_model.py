@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 from torchvision.models import resnet50
@@ -7,10 +8,10 @@ from sklearn.metrics import f1_score
 
 from dataloader import init_loader
 
-NUM_CLASSES = 6
-EPOCHS = 2
-BATCH_SIZE = 32
-IMG_SIZE = 232
+EPOCHS = os.getenv('EPOCHS')
+NUM_CLASSES = os.getenv('NUM_CLASSES')
+BATCH_SIZE = os.getenv('BATCH_SIZE')
+IMG_SIZE = os.getenv('IMG_SIZE')
 
 
 def init_model():
